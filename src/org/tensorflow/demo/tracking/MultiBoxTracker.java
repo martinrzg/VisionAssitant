@@ -159,6 +159,7 @@ public class MultiBoxTracker {
   public synchronized void trackResults(
       final List<Recognition> results, final byte[] frame, final long timestamp) {
       if(trackedObjects.size() != 0 && noMoreThanOnce ){
+        //TODO here send all the trackedObjects array to the queue
         SpeechHelper.textToSpeech( context ,trackedObjects.get(0).title);
         noMoreThanOnce = false;
       }
