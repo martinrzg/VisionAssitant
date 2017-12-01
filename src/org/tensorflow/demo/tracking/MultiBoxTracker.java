@@ -35,6 +35,7 @@ import org.tensorflow.demo.Classifier.Recognition;
 import org.tensorflow.demo.env.BorderedText;
 import org.tensorflow.demo.env.ImageUtils;
 import org.tensorflow.demo.env.Logger;
+import org.tensorflow.demo.utils.SpeechHelper;
 
 /**
  * A tracker wrapping ObjectTracker that also handles non-max suppression and matching existing
@@ -153,11 +154,13 @@ public class MultiBoxTracker {
     final Matrix matrix = getFrameToCanvasMatrix();
     objectTracker.drawDebug(canvas, matrix);
   }
+  boolean noMoreThanOnce = true;
 
   public synchronized void trackResults(
       final List<Recognition> results, final byte[] frame, final long timestamp) {
-      if(trackedObjects.size() != 0){
-        System.out.println("Title: ->>>>>>>>>>>>>>>>>>>>>>>>>>" +trackedObjects.get(0).title);
+      if(trackedObjects.size() != 0 && noMoreThanOnce ){
+        SpeechHelper.textToSpeech( context ,trackedObjects.get(0).title);
+        noMoreThanOnce = false;
       }
     logger.i("Processing %d results from %d", results.size(), timestamp);
 

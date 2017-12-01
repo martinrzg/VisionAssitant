@@ -1,4 +1,4 @@
-#Thu Nov 30 12:11:50 CST 2017
+#Thu Nov 30 14:20:31 CST 2017
 base.0=C\:\\Users\\MartinRuiz\\Documents\\Github\\temps\\Android\\Tensorflow\\tensorflow\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\5
 path.0=classes.dex
 renamed.0=classes.dex
